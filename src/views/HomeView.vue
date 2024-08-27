@@ -1,0 +1,36 @@
+<script setup lang="ts">
+import TheLandPage from '../components/TheLandPage.vue'
+import ImageSlide from '../components/ImageSlide.vue'
+import WhatWeDo from '../components/WhatWeDo.vue'
+import OurCapabilities from '../components/OurCapabilities.vue'
+import OurStatics from '../components/OurStatics.vue'
+import Testimonials from '../components/Testimonials.vue'
+import Passionates from '../components/Passionates.vue'
+import TeamCrew from '../components/TeamCrew.vue'
+import OurFooter from '../components/OurFooter.vue'
+</script>
+
+<template>
+  <main>
+    <TheLandPage />
+    <ImageSlide />
+  </main>
+  <section>
+    <WhatWeDo />
+  </section>
+  <section>
+    <OurCapabilities />
+  </section>
+  <section>
+    <OurStatics />
+  </section>
+  <section>
+    <Testimonials />
+  </section>
+  <section>
+    <TeamCrew />
+  </section>
+  <section>
+    <OurFooter />
+  </section>
+</template>
