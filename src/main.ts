@@ -1,5 +1,6 @@
 import '@/assets/css/normalize.css'
 import '@/assets/css/fontawesome.min.css'
+import 'animate.css'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
