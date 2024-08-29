@@ -13,7 +13,8 @@ import OurFooter from '../components/OurFooter.vue'
 <template>
   <main>
     <TheLandPage />
-    <ImageSlide />
+    <h2>Selected Work</h2>
+    <ImageSlide slidePath="../assets/imgs/slide1" :imageCount="6" />
   </main>
   <section>
     <WhatWeDo />

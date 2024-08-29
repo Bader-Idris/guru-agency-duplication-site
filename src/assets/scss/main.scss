@@ -9,42 +9,51 @@
 * {
   box-sizing: border-box;
 }
+
 html {
   scroll-behavior: smooth;
 }
+
 body {
   font-family: "cairo", sans-serif;
 }
+
 a {
   text-decoration: none;
 }
+
 ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
 /* End Global Rules */
 
 /* screen sizes */
 /* Small */
 @media (min-width: 768px) {
+
   //! needs improvements
   .container {
     width: 750px;
   }
 }
+
 /* Medium */
 @media (min-width: 992px) {
   .container {
     width: 970px;
   }
 }
+
 /* Large */
 @media (min-width: 1200px) {
   .container {
     width: 1170px;
   }
 }
+
 /* End screen sizes */
 
 /* Custom scrollbar styles */
@@ -66,6 +75,7 @@ ul {
     background: lighten($primary2, 5%);
   }
 }
+
 /* End custom scrollbar styles */
 
 /* custom selection */
@@ -74,4 +84,32 @@ ul {
   background-color: $accent1;
   font-weight: bold;
 }
+
 /* End custom selection */
+
+/* cursor */
+*:hover~.cursor {
+  transform: scale(5);
+  display: inline;
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275)
+}
+
+// *:hover>.cursor {
+//   display: inline;
+// }
+
+.cursor {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: white;
+  transition: 0.1s;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  mix-blend-mode: difference;
+  display: none;
+  transition: cubic-bezier(0.6, -0.28, 0.735, 0.045)
+}
+
+/* End cursor */

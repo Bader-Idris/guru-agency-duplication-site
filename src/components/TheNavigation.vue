@@ -2,49 +2,26 @@
   <header>
     <nav>
       <div class="logo">
-        <img src="@/assets/imgs/logo-light.svg" alt="">
+        <a href="/">
+          <img src="@/assets/imgs/logo-light.svg" alt="">
+        </a>
       </div>
-      <div class="menu" @click="triggerMenu">
+      <div class="cursor"
+        :style="{ left: cursorX + 'px', top: cursorY + 'px' }"></div>
+      <!-- <div class="menu" @click="triggerMenu"> -->
+      <div class="menu" @click="openMenu">
         <div v-if="showText" class="text">
           <p>Menu</p>
           <div class="burger">
             <span v-for="i in 2"></span>
           </div>
         </div>
-        <!-- <div class="cursor"
-          :style="{ left: cursorX + 'px', top: 50 + 'px' }"></div> -->
         <div class="cursor"
           :style="{ left: cursorX + 'px', top: cursorY + 'px' }"></div>
-        <div v-if="showMegaMenu" class="mega-menu">
-          <div class="exit" @click="!triggerMenu" >
-            <span v-for="i in 2"></span>
-          </div>
-          <ul>
-            <li><a href="/">Homes</a></li>
-            <li><a href="/work">Work</a></li>
-            <li><a href="/services">Services</a></li>
-            <li><a href="/about">Studio</a></li>
-            <li><a href="/blog">Journal</a></li>
-          </ul>
-          <div class="contacting">
-            <a href="/contact">Contact</a>
-            <a href="/careers">careers</a>
-            <div class="lets-talk">
-              Let's Talk <span></span>
-            </div>
-          </div>
-          <div class="socials">
-            <ul>
-              <li><a href="#insta">Instagram</a></li>
-              <li><a href="#Behance">Behance</a></li>
-              <li><a href="#linkedin">Linkedin</a></li>
-              <li><a href="#twitter">X</a></li>
-            </ul>
-          </div>
-        </div>
       </div>
     </nav>
   </header>
+  <MegaMenu ref="megaMenu" />
 </template>
 
 <style lang="scss" scoped>
@@ -55,6 +32,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 999;
+
   nav {
     display: flex;
     justify-content: space-between;
@@ -65,10 +43,13 @@ header {
     // flex-direction: column;
 
     .logo {
-        mix-blend-mode: difference;
+      mix-blend-mode: difference;
+      padding: 10px;
     }
+
     .menu {
       padding: 10px;
+
       .text {
         color: white;
         display: flex;
@@ -77,136 +58,56 @@ header {
         cursor: pointer;
         transition: 0.5s;
         font-size: 18px;
+
         p {
           margin: 10px;
         }
+
         .burger {
           position: relative;
           height: 15px;
           width: 40px;
 
-          > span {
+          >span {
             background-color: white;
             position: absolute;
             display: block;
             width: 100%;
             height: 3px;
             border-radius: $b-radius;
+
             &:first-of-type {
               top: 0;
             }
+
             &:last-of-type {
               bottom: 0;
             }
           }
         }
       }
-      .text:hover ~ .cursor {
+
+      .text:hover~.cursor {
         transform: scale(5);
-        
+
       }
+
+      // check adding it to other places!
       &:hover {
         .cursor {
           display: inline;
         }
       }
-      .cursor {
-        position: fixed;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background-color: white;
-        transition: 0.1s;
-        transform: translate(-50%, -50%);
-        pointer-events: none;
-        mix-blend-mode: difference;
-        display: none;
-      }
-      .mega-menu {
-        mix-blend-mode: normal;
-        position: absolute;
-        right: 20px;
-        top: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        width: 420px;
-        height: 400px;
-        background: white;
-        padding: 20px;
-        transition: 0.5s;
-        border-radius: 1em;
-        mix-blend-mode: normal !important;
-        .exit {
-          position: absolute;
-          right: 0;
-          top: 20px;
-          padding: 20px;
-          display: block;
-          > span {
-            background-color: $primary1;
-            display: block;
-            width: 40px;
-            height: 2px;
-            border-radius: $b-radius;
-            &:first-of-type {
-              transform: translateY(-2px) rotate(45deg);
-            }
-            &:last-of-type {
-              transform: translateY(-4px) rotate(-45deg);
-            }
-          }
-        }
-        > ul {
-          display: flex;
-          flex-direction: column;
-          width: 100%;
-          li {
-            padding: 10px 0;
-            font-size: 20px;
-            a {
-              color: $primary1;
-            }
-          }
-        }
-        .contacting {
-          display: flex;
-          align-items: center;
-          justify-content: start;
-          border-top: 1px solid gray;
-          border-bottom: 1px solid gray;
-          a {
-            padding: 10px 10px 10px 0;
-            flex-grow: 1;
-          }
-          > .lets-talk {
-            flex-grow: 3;
-          }
-        }
-        .socials {
-          display: flex;
-          background-color: #e9e9e7;
-          ul {
-            display: flex;
-            // flex-direction: column;
-            li {
-              padding: 10px;
-              a {
-                color: $primary1;
-              }
-            }
-          }
-        }
-      }
     }
   }
 }
-
 </style>
 
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from 'vue';
+import MegaMenu from './MegaMenu.vue';
 
+const megaMenu = ref(null);
 const cursorX = ref(0);
 const cursorY = ref(0);
 const showText = ref(true); // Initially show the text
@@ -229,6 +130,11 @@ onBeforeUnmount(() => {
   window.removeEventListener('mousemove', updateCursorPosition);
 });
 
+const openMenu = () => {
+  if (megaMenu.value) {
+    megaMenu.value.openMegaMenu(); // Call the method exposed by MegaMenu
+  }
+};
 
 const triggerMenu = () => {
   showText.value = !showText.value;
