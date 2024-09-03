@@ -1,8 +1,6 @@
 <template>
   <TheNavigation />
-  <div class="services">
-    services
-  </div>
+  <div class="services">services</div>
   <OurFooter />
 </template>
 
@@ -11,5 +9,4 @@
 <script setup>
 import TheNavigation from '@/components/TheNavigation.vue'
 import OurFooter from '@/components/OurFooter.vue'
-
 </script>

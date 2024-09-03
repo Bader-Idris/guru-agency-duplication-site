@@ -1,10 +1,7 @@
 <template>
-  <div>
-    Work
-  </div>
+  <div>Work</div>
 </template>
 
 <style lang="scss"></style>
 
-<script setup>
-</script>
+<script setup></script>

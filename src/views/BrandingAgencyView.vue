@@ -1,10 +1,7 @@
 <template>
-  <div>
-    BrandingAgency
-  </div>
+  <div>BrandingAgency</div>
 </template>
 
 <style lang="scss"></style>
 
-<script setup>
-</script>
+<script setup></script>

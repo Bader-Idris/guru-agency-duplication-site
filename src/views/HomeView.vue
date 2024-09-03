@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import TheNavigation from '@/components/TheNavigation.vue'
 import TheLandPage from '../components/TheLandPage.vue'
 import ImageSlide from '../components/ImageSlide.vue'
 import WhatWeDo from '../components/WhatWeDo.vue'
@@ -11,6 +12,7 @@ import OurFooter from '../components/OurFooter.vue'
 </script>
 
 <template>
+  <TheNavigation />
   <main>
     <TheLandPage />
     <h2>Selected Work</h2>
@@ -35,3 +37,14 @@ import OurFooter from '../components/OurFooter.vue'
     <OurFooter />
   </section>
 </template>
+
+<style lang="scss">
+main {
+  background-color: black;
+
+  > h2 {
+    color: white;
+    font-size: 32px;
+  }
+}
+</style>

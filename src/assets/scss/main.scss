@@ -1,9 +1,9 @@
-@import "variables";
-@import "mixins";
-@import "functions";
-@import "fonts";
-@import "animations";
-@import "helpers";
+@import 'variables';
+@import 'mixins';
+@import 'functions';
+@import 'fonts';
+@import 'animations';
+@import 'helpers';
 
 /* Global Rules */
 * {
@@ -15,7 +15,7 @@ html {
 }
 
 body {
-  font-family: "cairo", sans-serif;
+  font-family: 'cairo', sans-serif;
 }
 
 a {
@@ -33,7 +33,6 @@ ul {
 /* screen sizes */
 /* Small */
 @media (min-width: 768px) {
-
   //! needs improvements
   .container {
     width: 750px;
@@ -88,10 +87,10 @@ ul {
 /* End custom selection */
 
 /* cursor */
-*:hover~.cursor {
+*:hover ~ .cursor {
   transform: scale(5);
   display: inline;
-  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275)
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 // *:hover>.cursor {
@@ -109,7 +108,7 @@ ul {
   pointer-events: none;
   mix-blend-mode: difference;
   display: none;
-  transition: cubic-bezier(0.6, -0.28, 0.735, 0.045)
+  transition: cubic-bezier(0.6, -0.28, 0.735, 0.045);
 }
 
 /* End cursor */

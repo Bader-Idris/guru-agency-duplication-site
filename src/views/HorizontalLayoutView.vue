@@ -1,10 +1,7 @@
 <template>
-  <div>
-    horizontalLayout
-  </div>
+  <div>horizontalLayout</div>
 </template>
 
 <style lang="scss"></style>
 
-<script setup>
-</script>
+<script setup></script>

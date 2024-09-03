@@ -1,10 +1,7 @@
 <template>
-  <div>
-    Contact
-  </div>
+  <div>Contact</div>
 </template>
 
 <style lang="scss"></style>
 
-<script setup>
-</script>
+<script setup></script>

@@ -3,17 +3,16 @@
     <nav>
       <div class="logo">
         <a href="/">
-          <img src="@/assets/imgs/logo-light.svg" alt="">
+          <img src="@/assets/imgs/logo-light.svg" alt="" />
         </a>
       </div>
       <div class="cursor"
         :style="{ left: cursorX + 'px', top: cursorY + 'px' }"></div>
-      <!-- <div class="menu" @click="triggerMenu"> -->
       <div class="menu" @click="openMenu">
         <div v-if="showText" class="text">
           <p>Menu</p>
           <div class="burger">
-            <span v-for="i in 2"></span>
+            <span v-for="i in 2 " :key="i"></span>
           </div>
         </div>
         <div class="cursor"
@@ -61,6 +60,7 @@ header {
 
         p {
           margin: 10px;
+          letter-spacing: 1px;
         }
 
         .burger {
@@ -89,7 +89,6 @@ header {
 
       .text:hover~.cursor {
         transform: scale(5);
-
       }
 
       // check adding it to other places!
@@ -104,40 +103,24 @@ header {
 </style>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue';
-import MegaMenu from './MegaMenu.vue';
+import { ref, inject } from 'vue'
+import MegaMenu from './MegaMenu.vue'
 
-const megaMenu = ref(null);
-const cursorX = ref(0);
-const cursorY = ref(0);
-const showText = ref(true); // Initially show the text
-const showMegaMenu = ref(false); // Initially hide the mega menu
+// Define types for cursor position
+const cursorX = inject('cursorX');
+const cursorY = inject('cursorY');
+// const updateCursorPosition = inject('updateCursorPosition'); // looks like we don't have to here
 
-const updateCursorPosition = (e) => {
-  cursorX.value = e.clientX;
-  cursorY.value = e.clientY;
-  // It's not pageY!!
-};
+const showText = ref<boolean>(true) // Initially show the text
 
-
-// Add event listeners when the component is mounted
-onMounted(() => {
-  window.addEventListener('mousemove', updateCursorPosition);
-});
-
-// Clean up the event listener when the component is unmounted
-onBeforeUnmount(() => {
-  window.removeEventListener('mousemove', updateCursorPosition);
-});
+// Define the type for the MegaMenu reference
+const megaMenu = ref<InstanceType<typeof MegaMenu> | null>(null)
 
 const openMenu = () => {
   if (megaMenu.value) {
-    megaMenu.value.openMegaMenu(); // Call the method exposed by MegaMenu
+    megaMenu.value.openMegaMenu() // Call the method exposed by MegaMenu
+    // document.body.style.overflow = 'hidden'; // Prevents scrolling
+    document.body.style.overflow = 'overlay'
   }
-};
-
-const triggerMenu = () => {
-  showText.value = !showText.value;
-  showMegaMenu.value = !showMegaMenu.value;
-};
+}
 </script>

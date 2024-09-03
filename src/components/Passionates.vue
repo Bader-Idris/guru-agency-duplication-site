@@ -1,10 +1,7 @@
 <template>
-  <div>
-    Passionates
-  </div>
+  <div>Passionates</div>
 </template>
 
 <style lang="scss"></style>
 
-<script setup>
-</script>
+<script setup></script>
