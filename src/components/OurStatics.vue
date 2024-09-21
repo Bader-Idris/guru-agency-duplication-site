@@ -2,10 +2,8 @@
   <div class="our-statics">
     <div class="scripting">
       <p>
-        Dive into our studio's core - numbers that mirror our dedication,
-        creativity, and pursuit of
-        excellence. These stats offer a glimpse into our design prowess and its
-        real-world impact.
+        Dive into our studio's core - numbers that mirror our dedication, creativity, and pursuit of
+        excellence. These stats offer a glimpse into our design prowess and its real-world impact.
       </p>
     </div>
     <div class="numbers">
@@ -32,10 +30,11 @@
     height: 90%;
     transform: rotate(-180deg);
     background-color: black;
-    background-image: url('@/assets/imgs/blur-spot.webp'),
-      url('@/assets/imgs/3dCorner.png');
+    background-image: url('@/assets/imgs/blur-spot.webp'), url('@/assets/imgs/3dCorner.png');
     background-repeat: no-repeat, no-repeat;
-    background-position: bottom right, bottom right;
+    background-position:
+      bottom right,
+      bottom right;
     background-size: 300px, 450px;
     z-index: 0;
 

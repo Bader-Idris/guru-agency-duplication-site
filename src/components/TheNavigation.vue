@@ -6,17 +6,15 @@
           <img src="@/assets/imgs/logo-light.svg" alt="" />
         </a>
       </div>
-      <div class="cursor"
-        :style="{ left: cursorX + 'px', top: cursorY + 'px' }"></div>
+      <div class="cursor" :style="{ left: cursorX + 'px', top: cursorY + 'px' }"></div>
       <div class="menu" @click="openMenu">
         <div v-if="showText" class="text">
           <p>Menu</p>
           <div class="burger">
-            <span v-for="i in 2 " :key="i"></span>
+            <span v-for="i in 2" :key="i"></span>
           </div>
         </div>
-        <div class="cursor"
-          :style="{ left: cursorX + 'px', top: cursorY + 'px' }"></div>
+        <div class="cursor" :style="{ left: cursorX + 'px', top: cursorY + 'px' }"></div>
       </div>
     </nav>
   </header>
@@ -68,7 +66,7 @@ header {
           height: 15px;
           width: 40px;
 
-          >span {
+          > span {
             background-color: white;
             position: absolute;
             display: block;
@@ -87,7 +85,7 @@ header {
         }
       }
 
-      .text:hover~.cursor {
+      .text:hover ~ .cursor {
         transform: scale(5);
       }
 
@@ -107,8 +105,8 @@ import { ref, inject } from 'vue'
 import MegaMenu from './MegaMenu.vue'
 
 // Define types for cursor position
-const cursorX = inject('cursorX');
-const cursorY = inject('cursorY');
+const cursorX = inject('cursorX')
+const cursorY = inject('cursorY')
 // const updateCursorPosition = inject('updateCursorPosition'); // looks like we don't have to here
 
 const showText = ref<boolean>(true) // Initially show the text

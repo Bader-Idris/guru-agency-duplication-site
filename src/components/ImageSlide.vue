@@ -36,6 +36,9 @@
     overflow: hidden;
     display: flex;
 
+    scroll-snap-type: x mandatory;
+    // scroll-snap-type: mandatory;
+
     img {
       height: 340px;
       object-fit: cover;

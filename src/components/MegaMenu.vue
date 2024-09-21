@@ -3,25 +3,20 @@
     <div class="exit" @click="isClosedMegaMenu">
       <span v-for="i in 2" :key="i"></span>
     </div>
-    <div class="cursor" :style="{ left: cursorX + 'px', top: cursorY + 'px' }">
-    </div>
+    <div class="cursor" :style="{ left: cursorX + 'px', top: cursorY + 'px' }"></div>
     <ul>
       <li><a href="/">Homes</a></li>
       <li><a href="/work">Work</a></li>
       <li><a href="/services">Services</a></li>
       <li><a href="/about">Studio</a></li>
       <li><a href="/blog">Journal</a></li>
-      <div class="cursor"
-        :style="{ left: cursorX + 'px', top: cursorY + 'px' }">
-      </div>
+      <div class="cursor" :style="{ left: cursorX + 'px', top: cursorY + 'px' }"></div>
     </ul>
     <div class="contacting animate__fadeInUp">
       <a href="/contact">Contact</a>
       <a href="/careers">careers</a>
       <div class="lets-talk">Let's Talk <span></span></div>
-      <div class="cursor"
-        :style="{ left: cursorX + 'px', top: cursorY + 'px' }">
-      </div>
+      <div class="cursor" :style="{ left: cursorX + 'px', top: cursorY + 'px' }"></div>
     </div>
     <div class="socials animate__fadeInDown">
       <ul>
@@ -29,9 +24,7 @@
         <li><a href="#Behance">Behance</a></li>
         <li><a href="#linkedin">Linkedin</a></li>
         <li><a href="#twitter">X</a></li>
-        <div class="cursor"
-          :style="{ left: cursorX + 'px', top: cursorY + 'px' }">
-        </div>
+        <div class="cursor" :style="{ left: cursorX + 'px', top: cursorY + 'px' }"></div>
       </ul>
     </div>
   </div>
@@ -70,7 +63,7 @@
     display: block;
     cursor: pointer;
 
-    >span {
+    > span {
       background-color: $primary1;
       display: block;
       width: 40px;
@@ -91,7 +84,7 @@
   //   transform: scale(10);
   // }
 
-  >ul {
+  > ul {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -133,7 +126,7 @@
       color: black;
     }
 
-    >.lets-talk {
+    > .lets-talk {
       flex-grow: 3;
       cursor: pointer;
     }
@@ -196,8 +189,8 @@ const handleKeydown = (event) => {
   }
 }
 
-const cursorX = inject('cursorX');
-const cursorY = inject('cursorY');
+const cursorX = inject('cursorX')
+const cursorY = inject('cursorY')
 
 // Add event listeners when the component is mounted
 onMounted(() => {

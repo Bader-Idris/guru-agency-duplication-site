@@ -17,7 +17,8 @@
   min-height: 100vh;
   background-color: #e9e9e7;
 
-  h2 {}
+  h2 {
+  }
 
   .features-set {
     display: flex;

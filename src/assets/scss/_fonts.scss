@@ -1,8 +1,9 @@
 @font-face {
   font-family: 'Plus Jakarta Sans';
-  src: url('@/assets/fonts/PlusJakartaSans/PlusJakartaSans-VariableFont_wght.ttf');
+  src: url('@/assets/fonts/plus-jakarta-sans/PlusJakartaSans-VariableFont_wght.ttf');
   src:
     local('Plus Jakarta Sans'),
     local('Plus Jakarta Sans'),
-    url('@/assets/fonts/PlusJakartaSans-Italic-VariableFont_wght') format('wght'); //source one
+    url('@/assets/fonts/plus-jakarta-sans/PlusJakartaSans-Italic-VariableFont_wght.ttf')
+      format('wght'); //source one
 }

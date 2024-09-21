@@ -14,17 +14,17 @@ const updateCursorPosition = (e: MouseEvent): void => {
 }
 
 onMounted(() => {
-  window.addEventListener('mousemove', updateCursorPosition);
-});
+  window.addEventListener('mousemove', updateCursorPosition)
+})
 
 onBeforeUnmount(() => {
-  window.removeEventListener('mousemove', updateCursorPosition);
-});
+  window.removeEventListener('mousemove', updateCursorPosition)
+})
 
-provide('cursorX', cursorX);
-provide('cursorY', cursorY);
-provide('updateCursorPosition', updateCursorPosition);
-//? to get them use 
+provide('cursorX', cursorX)
+provide('cursorY', cursorY)
+provide('updateCursorPosition', updateCursorPosition)
+//? to get them use
 // const cursorX = inject('cursorX');
 // const cursorY = inject('cursorY');
 // might need => const updateCursorPosition = inject('updateCursorPosition');
@@ -33,7 +33,6 @@ provide('updateCursorPosition', updateCursorPosition);
 /* 
 <div class="cursor" :style="{ left: cursorX + 'px', top: cursorY + 'px' }"></div>
 */
-
 </script>
 
 <template>
@@ -48,5 +47,7 @@ provide('updateCursorPosition', updateCursorPosition);
 </template>
 
 <style lang="scss" scoped>
-.howdy {}
+#app {
+  scroll-behavior: smooth;
+}
 </style>

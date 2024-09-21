@@ -5,33 +5,33 @@
         <li class="social-table" v-for="(social, i) in socialArr" :key="i">
           <a :href="social.href" target="_blank">
             <img :src="social.imgSrc" :alt="social.alt" :fill="social.fill" />
-            <div class="cursor"
-              :style="{ left: cursorX + 'px', top: cursorY + 'px' }"></div>
+            <div class="cursor" :style="{ left: cursorX + 'px', top: cursorY + 'px' }"></div>
           </a>
         </li>
       </ul>
     </div>
-    <h1 class="title animate__animated animate__backInUp"
-      :class="animationClass">
+    <h1 class="title animate__animated animate__backInUp" :class="animationClass">
       Let's Tell Your Brand Story Through
-      <span class="animate__animated animate__heartBeat"
-        :class="animationClass">{{
-          dynamicTitle
-        }}</span>
+      <span class="animate__animated animate__heartBeat" :class="animationClass">{{
+        dynamicTitle
+      }}</span>
     </h1>
     <div class="video-show-reel">
       <button class="play-video" @click.prevent="windowVideo">
         <img src="@/assets/imgs/play-arrow.svg" alt="" />
-        <iframe controls muted loop autoplay
-          src="https://player.vimeo.com/video/810134952?muted=1&autoplay=1&dnt=1&loop=1&background=1&app_id=122963"></iframe>
+        <iframe
+          controls
+          muted
+          loop
+          autoplay
+          src="https://player.vimeo.com/video/810134952?muted=1&autoplay=1&dnt=1&loop=1&background=1&app_id=122963"
+        ></iframe>
       </button>
       <p>Check out our reel</p>
     </div>
     <div class="slogan">
-
       <p>
-        A design and strategy studio born in New York that creates visual
-        stories that resonate.
+        A design and strategy studio born in New York that creates visual stories that resonate.
       </p>
     </div>
   </div>
@@ -184,7 +184,6 @@
       }
     }
   }
-
 }
 </style>
 
@@ -203,7 +202,6 @@ I want to make this element scrolling with the screen after it touches the top o
 
 that's how it's above in the template, I want to make it working when it touches the screen, updating the value of isSticky to true
 */
-
 
 let titleIndex = 0
 let intervalId = null
@@ -245,8 +243,8 @@ const socialArr = ref([
   { imgSrc: getImageUrl('twitterx.svg'), href: '#', alt: 'twitter x', fill: 'white' }
 ])
 
-const cursorX = inject('cursorX');
-const cursorY = inject('cursorY');
+const cursorX = inject('cursorX')
+const cursorY = inject('cursorY')
 
 onMounted(() => {
   intervalId = setInterval(updateTitle, 2000) // Change title every 2 seconds

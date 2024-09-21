@@ -22,8 +22,7 @@
     "splitting": "^1.1.0",
     "vidstack": "^1.12.9",
     "vue": "^3.4.38",
-    "vue-router": "^4.4.3",
-    "postcss": "^8.0.0"
+    "vue-router": "^4.4.3"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.10.4",
@@ -49,6 +48,6 @@
     "maintained node versions"
   ],
   "peerDependencies": {
-    "postcss": "^8.0.0"
+    "postcss": "^8.4.44"
   }
 }
