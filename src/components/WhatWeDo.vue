@@ -22,6 +22,10 @@
 
   .hero-para {
     font-size: 72px;
+    margin: auto 20px;
+    letter-spacing: 1;
+
+    text-align: center;
 
     @media (max-width: 768px) {
       font-size: 36px;

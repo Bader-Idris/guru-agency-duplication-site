@@ -4,9 +4,9 @@
       <h3>Reviews</h3>
       <div class="stars"></div>
       <p class="desc">
-        Their words are a testament to our commitment to excellence and our
-        ability to bring their visions to life. Read on to see how we’ve made a
-        lasting impact on their brands and projects.
+        Their words are a testament to our commitment to excellence and our ability to bring their
+        visions to life. Read on to see how we’ve made a lasting impact on their brands and
+        projects.
       </p>
     </div>
     <div class="quotes" ref="carousel">
@@ -49,6 +49,12 @@
     display: grid;
     grid-auto-flow: column;
 
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: 0;
+
     @media screen and (max-width: 768px) {
       grid-auto-rows: calc((100% / 3) - 12px);
     }
@@ -56,13 +62,6 @@
     @media screen and (min-width: 768px) {
       grid-auto-columns: calc((100% / 3) - 12px);
     }
-
-
-    gap: 16px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    scrollbar-width: 0;
 
     &::-webkit-scrollbar {
       display: none;
@@ -111,7 +110,8 @@
         padding-top: 30px;
       }
 
-      .speaker {}
+      .speaker {
+      }
 
       &::before {
         content: '"';
@@ -129,73 +129,86 @@
 </style>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 const quotesDesc = ref([
-  { speaker: "- Sarah Johnson, Marketing Lead at Technlogia", desc: "From concept to execution, PixelPier demonstrated a level of expertise that is truly commendable. They were responsive, flexible, and delivered a design that truly speaks to our target audience." },
-  { speaker: "- Frank Berry, Chief Creative Officer at Gomi", desc: "From concept to execution, PixelPier demonstrated a level of expertise that is truly commendable. They were responsive, flexible, and delivered a design that truly speaks to our target audience. The team's turned our vision into a reality, and we couldn't be happier." },
-  { speaker: "- Michael Brown, Founder at Fabriks", desc: "Working with PixelPier was an absolute pleasure. Their attention to detail and creative flair truly set them apart. They took our vision and turned it into something beyond our expectations." },
-  { speaker: "- Sarah Johnson, Marketing Lead at Technlogia", desc: "From concept to execution, PixelPier demonstrated a level of expertise that is truly commendable. They were responsive, flexible, and delivered a design that truly speaks to our target audience." },
-  { speaker: "- Michael Brown, Founder at Fabriks", desc: "Working with PixelPier was an absolute pleasure. Their attention to detail and creative flair truly set them apart. They took our vision and turned it into something beyond our expectations." }
-]);
+  {
+    speaker: '- Sarah Johnson, Marketing Lead at Technlogia',
+    desc: 'From concept to execution, PixelPier demonstrated a level of expertise that is truly commendable. They were responsive, flexible, and delivered a design that truly speaks to our target audience.'
+  },
+  {
+    speaker: '- Frank Berry, Chief Creative Officer at Gomi',
+    desc: "From concept to execution, PixelPier demonstrated a level of expertise that is truly commendable. They were responsive, flexible, and delivered a design that truly speaks to our target audience. The team's turned our vision into a reality, and we couldn't be happier."
+  },
+  {
+    speaker: '- Michael Brown, Founder at Fabriks',
+    desc: 'Working with PixelPier was an absolute pleasure. Their attention to detail and creative flair truly set them apart. They took our vision and turned it into something beyond our expectations.'
+  },
+  {
+    speaker: '- Sarah Johnson, Marketing Lead at Technlogia',
+    desc: 'From concept to execution, PixelPier demonstrated a level of expertise that is truly commendable. They were responsive, flexible, and delivered a design that truly speaks to our target audience.'
+  },
+  {
+    speaker: '- Michael Brown, Founder at Fabriks',
+    desc: 'Working with PixelPier was an absolute pleasure. Their attention to detail and creative flair truly set them apart. They took our vision and turned it into something beyond our expectations.'
+  }
+])
 //! carousel == quotes
 //  quote == card
-const carousel = ref(null);
-let isDragging = false;
-let startX, startScrollLeft, timeoutId;
+const carousel = ref(null)
+let isDragging = false
+let startX, startScrollLeft, timeoutId
 
 const dragStart = (e) => {
-  isDragging = true;
-  carousel.value.classList.add("dragging");
-  startX = e.pageX;
-  startScrollLeft = carousel.value.scrollLeft;
-};
+  isDragging = true
+  carousel.value.classList.add('dragging')
+  startX = e.pageX
+  startScrollLeft = carousel.value.scrollLeft
+}
 
 const dragging = (e) => {
-  if (!isDragging) return;
+  if (!isDragging) return
 
-  const newScrollLeft = startScrollLeft - (e.pageX - startX);
-  carousel.value.scrollLeft = newScrollLeft;
-};
+  const newScrollLeft = startScrollLeft - (e.pageX - startX)
+  carousel.value.scrollLeft = newScrollLeft
+}
 
 const dragStop = () => {
-  isDragging = false;
-  carousel.value.classList.remove("dragging");
-};
-
+  isDragging = false
+  carousel.value.classList.remove('dragging')
+}
 
 const autoPlay = () => {
-  if (window.innerWidth < 800) return;
+  if (window.innerWidth < 800) return
 
-  const totalCardWidth = carousel.value.scrollWidth;
-  const maxScrollLeft = totalCardWidth - carousel.value.offsetWidth;
+  const totalCardWidth = carousel.value.scrollWidth
+  const maxScrollLeft = totalCardWidth - carousel.value.offsetWidth
 
-  if (carousel.value.scrollLeft >= maxScrollLeft) return;
+  if (carousel.value.scrollLeft >= maxScrollLeft) return
 
   timeoutId = setTimeout(() => {
-    carousel.value.scrollLeft += carousel.value.querySelector('.quote').offsetWidth;
-  }, 2500);
-};
+    carousel.value.scrollLeft += carousel.value.querySelector('.quote').offsetWidth
+  }, 2500)
+}
 
 const scrollCarousel = (direction) => {
-  const firstCardWidth = carousel.value.querySelector('.quote').offsetWidth;
-  carousel.value.scrollLeft += direction * firstCardWidth;
-};
+  const firstCardWidth = carousel.value.querySelector('.quote').offsetWidth
+  carousel.value.scrollLeft += direction * firstCardWidth
+}
 
 onMounted(() => {
-  carousel.value.addEventListener("mousedown", dragStart);
-  carousel.value.addEventListener("mousemove", dragging);
-  document.addEventListener("mouseup", dragStop);
-  carousel.value.addEventListener("mouseenter", () => clearTimeout(timeoutId));
-  carousel.value.addEventListener("mouseleave", autoPlay);
+  carousel.value.addEventListener('mousedown', dragStart)
+  carousel.value.addEventListener('mousemove', dragging)
+  document.addEventListener('mouseup', dragStop)
+  carousel.value.addEventListener('mouseenter', () => clearTimeout(timeoutId))
+  carousel.value.addEventListener('mouseleave', autoPlay)
 
-  autoPlay(); // Start autoplay when the component is mounted
-});
+  autoPlay() // Start autoplay when the component is mounted
+})
 
 onBeforeUnmount(() => {
-  clearTimeout(timeoutId);
-  carousel.value.removeEventListener("mousedown", dragStart);
-  carousel.value.removeEventListener("mousemove", dragging);
-  document.removeEventListener("mouseup", dragStop);
-});
-
+  clearTimeout(timeoutId)
+  carousel.value.removeEventListener('mousedown', dragStart)
+  carousel.value.removeEventListener('mousemove', dragging)
+  document.removeEventListener('mouseup', dragStop)
+})
 </script>

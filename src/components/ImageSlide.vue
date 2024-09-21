@@ -83,7 +83,7 @@
 </style>
 
 <script setup>
-import { defineProps, ref, onMounted } from 'vue'
+import { defineProps, ref, onMounted, onBeforeMount } from 'vue'
 
 // Define props to accept the image path
 const props = defineProps({
@@ -133,7 +133,12 @@ const endDrag = () => {
 }
 
 // Load images on component mount
-onMounted(() => {
+// onMounted(() => {
+//   for (let index = 1; index <= props.imageCount; index++) {
+//     images.value.push(getImageUrl(`image${index}`))
+//   }
+// })
+onBeforeMount(() => {
   for (let index = 1; index <= props.imageCount; index++) {
     images.value.push(getImageUrl(`image${index}`))
   }

@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import TheNavigation from '@/components/TheNavigation.vue'
-import TheLandPage from '../components/TheLandPage.vue'
-import ImageSlide from '../components/ImageSlide.vue'
-import WhatWeDo from '../components/WhatWeDo.vue'
-import OurCapabilities from '../components/OurCapabilities.vue'
-import OurStatics from '../components/OurStatics.vue'
-import Testimonials from '../components/Testimonials.vue'
-import Passionates from '../components/Passionates.vue'
-import TeamCrew from '../components/TeamCrew.vue'
-import OurFooter from '../components/OurFooter.vue'
+import TheLandPage from '@/components/TheLandPage.vue'
+import ImageSlide from '@/components/ImageSlide.vue'
+import WhatWeDo from '@/components/WhatWeDo.vue'
+import OurCapabilities from '@/components/OurCapabilities.vue'
+import OurStatics from '@/components/OurStatics.vue'
+import Testimonials from '@/components/Testimonials.vue'
+// import Passionates from '@/components/Passionates.vue'
+import TeamCrew from '@/components/TeamCrew.vue'
+import OurFooter from '@/components/OurFooter.vue'
 </script>
 
 <template>

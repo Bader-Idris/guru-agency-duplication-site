@@ -190,11 +190,11 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, inject } from 'vue'
 
-const titles = ['Design', 'Strategy', 'Experience', 'Branding']
-const dynamicTitle = ref(titles[0])
-const animationClass = ref('animate__heartBeat')
+const titles: string[] = ['Design', 'Strategy', 'Experience', 'Branding']
+const dynamicTitle = ref<string>(titles[0])
+const animationClass = ref<string>('animate__heartBeat')
 
-const isSticky = ref(false)
+const isSticky = ref<boolean>(false)
 /* 
 I want to make this element scrolling with the screen after it touches the top of the screen, until it finished the Langpage.vue which is its comp name
 
@@ -203,10 +203,10 @@ I want to make this element scrolling with the screen after it touches the top o
 that's how it's above in the template, I want to make it working when it touches the screen, updating the value of isSticky to true
 */
 
-let titleIndex = 0
-let intervalId = null
+let titleIndex: number = 0
+let intervalId: number | null = null
 
-const updateTitle = () => {
+const updateTitle = (): void => {
   titleIndex = (titleIndex + 1) % titles.length
   dynamicTitle.value = titles[titleIndex]
 
@@ -225,7 +225,7 @@ const updateTitle = () => {
 //   // 'https://www.youtube.com/watch?time_continue=1&v=RXidlUSBhMY&embeds_referring_euri=https%3A%2F%2Fpixelpiernyc.vamtam.com%2F&source_ve_path=Mjg2NjY';
 // }
 
-const windowVideo = () => {
+const windowVideo = (): void => {
   console.log('clicked')
   // create a div.video-on-youtube referring to 👇 link, and make a layout stopping scrolling until user clicks on the layout which is nearly padding 80px to both sides
   // and it should be as a thumbnail and can be clicked as an outer youtube video, not to be refused to connect as with 403 401 responses of youtube
@@ -233,25 +233,32 @@ const windowVideo = () => {
   // 'https://www.youtube.com/watch?time_continue=1&v=RXidlUSBhMY&embeds_referring_euri=https%3A%2F%2Fpixelpiernyc.vamtam.com%2F&source_ve_path=Mjg2NjY';
 }
 
-function getImageUrl(name: string) {
+function getImageUrl(name: string): string {
   return new URL(`../assets/imgs/${name}`, import.meta.url).href
 }
 
-const socialArr = ref([
+interface SocialLink {
+  imgSrc: string
+  href: string
+  alt: string
+  fill: string
+}
+
+const socialArr = ref<SocialLink[]>([
   { imgSrc: getImageUrl('instagram.svg'), href: '#', alt: 'instagram', fill: 'white' },
   { imgSrc: getImageUrl('behance.svg'), href: '#', alt: 'behance', fill: 'white' },
   { imgSrc: getImageUrl('twitterx.svg'), href: '#', alt: 'twitter x', fill: 'white' }
 ])
 
-const cursorX = inject('cursorX')
-const cursorY = inject('cursorY')
+const cursorX = inject<number | null>('cursorX', null)
+const cursorY = inject<number | null>('cursorY', null)
 
-onMounted(() => {
-  intervalId = setInterval(updateTitle, 2000) // Change title every 2 seconds
+onMounted((): void => {
+  intervalId = window.setInterval(updateTitle, 2000) // Change title every 2 seconds
 })
 
-onBeforeUnmount(() => {
-  if (intervalId) {
+onBeforeUnmount((): void => {
+  if (intervalId !== null) {
     clearInterval(intervalId) // Clear the interval when the component unmounts
   }
 })

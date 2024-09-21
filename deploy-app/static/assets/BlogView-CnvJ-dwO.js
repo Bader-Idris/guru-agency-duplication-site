@@ -1,0 +1,1 @@
+import{o as a,c as o,a as e,F as s,b as t,T as r,O as c}from"./index-563gTdfV.js";const n=t("div",{class:"blog"},"blog",-1),p={__name:"BlogView",setup(l){return(_,i)=>(a(),o(s,null,[e(r),n,e(c)],64))}};export{p as default};

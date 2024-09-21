@@ -160,12 +160,14 @@
 
 <script setup lang="ts">
 import { ref, defineEmits, defineExpose, onMounted, onBeforeUnmount, inject } from 'vue'
-const emit = defineEmits()
+const emit = defineEmits<{
+  (e: 'close'): void
+}>()
 
-const showMegaMenu = ref(false)
-const isFadingOut = ref(false)
+const showMegaMenu = ref<boolean>(false)
+const isFadingOut = ref<boolean>(false)
 
-const isClosedMegaMenu = () => {
+const isClosedMegaMenu = (): void => {
   // console.log('showMegaMenu', showMegaMenu.value);
 
   isFadingOut.value = true // Start fading out
@@ -177,29 +179,28 @@ const isClosedMegaMenu = () => {
 }
 
 // Function to open the mega menu
-const openMegaMenu = () => {
+const openMegaMenu = (): void => {
   showMegaMenu.value = true
 }
 
 // Handle the Escape key event
-const handleKeydown = (event) => {
-  if (event.keyCode === 27) {
-    // Key code for Escape
+const handleKeydown = (event: KeyboardEvent): void => {
+  if (event.key === 'Escape') {
     isClosedMegaMenu()
   }
 }
 
-const cursorX = inject('cursorX')
-const cursorY = inject('cursorY')
+const cursorX = inject<number | null>('cursorX', null)
+const cursorY = inject<number | null>('cursorY', null)
 
 // Add event listeners when the component is mounted
-onMounted(() => {
-  window.addEventListener('keydown', handleKeydown) // Listen for keydown events
+onMounted((): void => {
+  window.addEventListener('keydown', handleKeydown)
 })
 
 // Clean up the event listeners when the component is unmounted
-onBeforeUnmount(() => {
-  window.removeEventListener('keydown', handleKeydown) // Clean up keydown listener
+onBeforeUnmount((): void => {
+  window.removeEventListener('keydown', handleKeydown)
 })
 
 // Expose the openMegaMenu method to the parent component
