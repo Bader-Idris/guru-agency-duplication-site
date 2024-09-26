@@ -5,7 +5,9 @@
         <li class="social-table" v-for="(social, i) in socialArr" :key="i">
           <a :href="social.href" target="_blank">
             <img :src="social.imgSrc" :alt="social.alt" :fill="social.fill" />
-            <div class="cursor" :style="{ left: cursorX + 'px', top: cursorY + 'px' }"></div>
+            <!-- <div class="cursor"
+              :style="{ left: cursorX + 'px', top: cursorY + 'px' }"></div> -->
+            <CircleCursor />
           </a>
         </li>
       </ul>
@@ -28,6 +30,7 @@
         ></iframe>
       </button>
       <p>Check out our reel</p>
+      <CircleCursor />
     </div>
     <div class="slogan">
       <p>
@@ -102,19 +105,25 @@
             width: 50px;
             color: white;
             filter: invert(1);
+            opacity: 0.8;
           }
         }
       }
     }
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
   }
 
   .title {
-    font-size: 70px;
+    font-size: 66px;
     font-family: $main-font;
-    color: white;
+    color: #e9e9e7;
     margin: 0;
     font-weight: 300;
     padding-left: 20px;
+    font-weight: 300;
 
     @media (max-width: 768px) {
       width: 100%;
@@ -123,8 +132,8 @@
     }
 
     @media (min-width: 768px) {
-      width: 50%;
-      padding-top: 45vh;
+      width: 60%;
+      padding-top: 25vh;
     }
   }
 
@@ -168,11 +177,13 @@
     p {
       color: white;
       padding-left: 10px;
-      font-size: 20px;
+      font-size: 16px;
     }
   }
 
   .slogan {
+    padding-top: 30px;
+
     p {
       color: white;
       font-size: 20px;
@@ -182,13 +193,17 @@
         width: calc(100% - 20px);
         font-size: 18px;
       }
+
+      @media screen and (min-width: 768px) {
+        width: 40%;
+      }
     }
   }
 }
 </style>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount, inject } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 const titles: string[] = ['Design', 'Strategy', 'Experience', 'Branding']
 const dynamicTitle = ref<string>(titles[0])
@@ -250,8 +265,8 @@ const socialArr = ref<SocialLink[]>([
   { imgSrc: getImageUrl('twitterx.svg'), href: '#', alt: 'twitter x', fill: 'white' }
 ])
 
-const cursorX = inject<number | null>('cursorX', null)
-const cursorY = inject<number | null>('cursorY', null)
+// const cursorX = inject<number | null>('cursorX', null)
+// const cursorY = inject<number | null>('cursorY', null)
 
 onMounted((): void => {
   intervalId = window.setInterval(updateTitle, 2000) // Change title every 2 seconds

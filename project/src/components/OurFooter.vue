@@ -3,21 +3,46 @@
     <div class="lets-talk">
       <img src="@/assets/imgs/logo-symbol.svg" alt="" />
       <a href="/contact">let's talk</a>
+      <CircleCursor />
     </div>
     <div class="socials">
       <ul>
-        <li><a href="#insta">Instagram</a></li>
-        <li><a href="#Behance">Behance</a></li>
-        <li><a href="#linkedin">Linkedin</a></li>
-        <li><a href="#twitter">X</a></li>
+        <li>
+          <a href="#insta">Instagram</a>
+          <CircleCursor />
+        </li>
+        <li>
+          <a href="#Behance">Behance</a>
+          <CircleCursor />
+        </li>
+        <li>
+          <a href="#linkedin">Linkedin</a>
+          <CircleCursor />
+        </li>
+        <li>
+          <a href="#twitter">X</a>
+          <CircleCursor />
+        </li>
       </ul>
     </div>
     <div class="routing-banner">
       <ul>
-        <li><a href="/about">Agency</a></li>
-        <li><a href="/work">Work</a></li>
-        <li><a href="/services">Services</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li>
+          <a href="/about">Agency</a>
+          <CircleCursor />
+        </li>
+        <li>
+          <a href="/work">Work</a>
+          <CircleCursor />
+        </li>
+        <li>
+          <a href="/services">Services</a>
+          <CircleCursor />
+        </li>
+        <li>
+          <a href="/contact">Contact</a>
+          <CircleCursor />
+        </li>
       </ul>
     </div>
     <div class="copy-writes">

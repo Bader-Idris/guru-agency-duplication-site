@@ -8,7 +8,8 @@
     @touchend="endDrag"
   >
     <div class="wrapper" ref="wrapper" @mousemove.prevent="onDrag" @touchmove="onDrag">
-      <img :src="image" alt="" v-for="(image, index) in images" :key="index" />
+      <!-- <img :src="image" alt="" v-for="(image, index) in images" :key="index" /> -->
+      <img :src="image.src" :alt="image.alt" v-for="(image, index) in images" :key="index" />
     </div>
     <div class="dots">
       <span
@@ -35,15 +36,16 @@
     white-space: nowrap;
     overflow: hidden;
     display: flex;
-
+    height: 600px;
     scroll-snap-type: x mandatory;
     // scroll-snap-type: mandatory;
 
     img {
-      height: 340px;
+      height: 480px;
       object-fit: cover;
       margin-left: 14px;
-      width: calc(100% / 3);
+      // width: calc(100% / 3);
+
       transition: transform 0.2s ease-in-out;
 
       &:first-of-type {
@@ -52,10 +54,19 @@
 
       @media screen and (max-width: 768px) {
         width: calc(100% / 2);
+        // min-width: 30vw;
       }
 
       @media screen and (max-width: 450px) {
-        width: 100%;
+        width: calc(100% - 40px);
+        margin: 0 20px !important;
+        // min-width: 30vw;
+      }
+
+      @media screen and (min-width: 768px) {
+        // min-width: 30vw;
+        width: 60%;
+        margin-top: 20px;
       }
     }
   }
@@ -63,7 +74,16 @@
   .dots {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+
+    @media screen and (max-width: 768px) {
+      margin-top: -100px;
+      margin-bottom: 20px;
+    }
+
+    @media screen and (min-width: 768px) {
+      margin-top: -70px;
+      margin-bottom: 30px;
+    }
 
     span {
       display: block;
@@ -83,27 +103,7 @@
 </style>
 
 <script setup>
-import { defineProps, ref, onMounted, onBeforeMount } from 'vue'
-
-// Define props to accept the image path
-const props = defineProps({
-  slidePath: {
-    type: String,
-    required: true
-  },
-  imageCount: {
-    type: Number,
-    default: 5
-  }
-})
-
-// Create a ref to hold the images
-const images = ref([])
-
-// Function to construct the image URL
-function getImageUrl(name) {
-  return new URL(`${props.slidePath}/${name}.jpg`, import.meta.url).href
-}
+import { ref, onMounted } from 'vue'
 
 const wrapper = ref(null)
 const isDragging = ref(false)
@@ -132,15 +132,36 @@ const endDrag = () => {
   isDragging.value = false
 }
 
-// Load images on component mount
-// onMounted(() => {
-//   for (let index = 1; index <= props.imageCount; index++) {
-//     images.value.push(getImageUrl(`image${index}`))
-//   }
-// })
-onBeforeMount(() => {
-  for (let index = 1; index <= props.imageCount; index++) {
-    images.value.push(getImageUrl(`image${index}`))
-  }
+// Define an array of images with src and alt dynamically imported
+const images = ref([])
+
+// Use dynamic imports for each image
+onMounted(() => {
+  images.value = [
+    {
+      src: new URL('@/assets/imgs/slide1/image1.jpg', import.meta.url).href,
+      alt: 'Image 1 description'
+    },
+    {
+      src: new URL('@/assets/imgs/slide1/image2.jpg', import.meta.url).href,
+      alt: 'Image 2 description'
+    },
+    {
+      src: new URL('@/assets/imgs/slide1/image3.jpg', import.meta.url).href,
+      alt: 'Image 3 description'
+    },
+    {
+      src: new URL('@/assets/imgs/slide1/image4.jpg', import.meta.url).href,
+      alt: 'Image 4 description'
+    },
+    {
+      src: new URL('@/assets/imgs/slide1/image5.jpg', import.meta.url).href,
+      alt: 'Image 5 description'
+    },
+    {
+      src: new URL('@/assets/imgs/slide1/image6.jpg', import.meta.url).href,
+      alt: 'Image 6 description'
+    }
+  ]
 })
 </script>

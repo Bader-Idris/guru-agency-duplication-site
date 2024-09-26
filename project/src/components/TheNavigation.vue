@@ -6,7 +6,7 @@
           <img src="@/assets/imgs/logo-light.svg" alt="" />
         </a>
       </div>
-      <div class="cursor" :style="{ left: cursorX + 'px', top: cursorY + 'px' }"></div>
+      <CircleCursor />
       <div class="menu" @click="openMenu">
         <div v-if="showText" class="text">
           <p>Menu</p>
@@ -14,7 +14,7 @@
             <span v-for="i in 2" :key="i"></span>
           </div>
         </div>
-        <div class="cursor" :style="{ left: cursorX + 'px', top: cursorY + 'px' }"></div>
+        <CircleCursor />
       </div>
     </nav>
   </header>
@@ -101,13 +101,8 @@ header {
 </style>
 
 <script setup lang="ts">
-import { ref, inject } from 'vue'
+import { ref } from 'vue'
 import MegaMenu from './MegaMenu.vue'
-
-// Define types for cursor position
-const cursorX = inject('cursorX')
-const cursorY = inject('cursorY')
-// const updateCursorPosition = inject('updateCursorPosition'); // looks like we don't have to here
 
 const showText = ref<boolean>(true) // Initially show the text
 

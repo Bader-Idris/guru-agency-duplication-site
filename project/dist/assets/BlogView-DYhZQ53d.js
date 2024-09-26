@@ -1,0 +1,1 @@
+import{c as a,a as e,F as o,b as s,o as t,T as r,O as c}from"./index-uuh2zEC6.js";const n=s("div",{class:"blog"},"blog",-1),p={__name:"BlogView",setup(l){return(_,i)=>(t(),a(o,null,[e(r),n,e(c)],64))}};export{p as default};

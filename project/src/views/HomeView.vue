@@ -7,7 +7,7 @@ import OurCapabilities from '@/components/OurCapabilities.vue'
 import OurStatics from '@/components/OurStatics.vue'
 import Testimonials from '@/components/Testimonials.vue'
 // import Passionates from '@/components/Passionates.vue'
-import TeamCrew from '@/components/TeamCrew.vue'
+// import TeamCrew from '@/components/TeamCrew.vue'
 import OurFooter from '@/components/OurFooter.vue'
 </script>
 
@@ -16,7 +16,7 @@ import OurFooter from '@/components/OurFooter.vue'
   <main>
     <TheLandPage />
     <h2>Selected Work</h2>
-    <ImageSlide slidePath="../assets/imgs/slide1" :imageCount="6" />
+    <ImageSlide />
   </main>
   <section>
     <WhatWeDo />
@@ -31,7 +31,7 @@ import OurFooter from '@/components/OurFooter.vue'
     <Testimonials />
   </section>
   <section>
-    <TeamCrew />
+    <!-- <TeamCrew /> -->
   </section>
   <section>
     <OurFooter />
@@ -45,6 +45,8 @@ main {
   > h2 {
     color: white;
     font-size: 32px;
+    margin-left: 20px;
+    margin-top: -100px;
   }
 }
 </style>

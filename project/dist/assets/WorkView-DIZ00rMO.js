@@ -1,0 +1,1 @@
+import{c as a,a as e,F as o,b as r,o as s,T as t,O as c}from"./index-uuh2zEC6.js";const n=r("div",{class:"work"},"work",-1),p={__name:"WorkView",setup(_){return(i,l)=>(s(),a(o,null,[e(t),n,e(c)],64))}};export{p as default};
