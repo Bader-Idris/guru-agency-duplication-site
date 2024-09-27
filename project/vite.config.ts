@@ -38,13 +38,14 @@ export default defineConfig({
         autoprefixer({
           // Adjust the browsers list to support the last 4 years of browsers
           overrideBrowserslist: [
-            'last 4 versions', // Last 4 versions of all browsers
+            'last 6 versions', // Support the last 6 versions of all browsers
             'not dead', // Exclude browsers that are no longer maintained
             'not < 1%', // Exclude browsers with less than 1% market share
-            'ie >= 11' // Support IE 11 and above
+            'Firefox >= 59',
+            'Safari >= 10.1'
           ],
-          grid: 'stable',
-          flexbox: 'modern',
+          grid: 'autoplace',
+          flexbox: 'no-2009',
           cascade: false
         })
       ]
@@ -54,5 +55,8 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
+  },
+  build: {
+    target: 'es2018' // Set the target to es2018
   }
 })

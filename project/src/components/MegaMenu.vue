@@ -3,7 +3,6 @@
     <div class="exit" @click="isClosedMegaMenu">
       <span v-for="i in 2" :key="i"></span>
     </div>
-    <!-- <div class="cursor" :style="{ left: cursorX + 'px', top: cursorY + 'px' }"></div> -->
     <CircleCursor />
     <ul>
       <li><a href="/">Homes</a></li>
@@ -11,16 +10,12 @@
       <li><a href="/services">Services</a></li>
       <li><a href="/about">Studio</a></li>
       <li><a href="/blog">Journal</a></li>
-      <!-- <div class="cursor"
-        :style="{ left: cursorX + 'px', top: cursorY + 'px' }"></div> -->
       <CircleCursor />
     </ul>
     <div class="contacting animate__fadeInUp">
       <a href="/contact">Contact</a>
       <a href="/careers">careers</a>
       <div class="lets-talk">Let's Talk <span></span></div>
-      <!-- <div class="cursor"
-        :style="{ left: cursorX + 'px', top: cursorY + 'px' }"></div> -->
       <CircleCursor />
     </div>
     <div class="socials animate__fadeInDown">
@@ -166,7 +161,7 @@
 </style>
 
 <script setup lang="ts">
-import { ref, defineEmits, defineExpose, onMounted, onBeforeUnmount, inject } from 'vue'
+import { ref, defineEmits, defineExpose, onMounted, onBeforeUnmount } from 'vue'
 const emit = defineEmits<{
   (e: 'close'): void
 }>()
@@ -196,9 +191,6 @@ const handleKeydown = (event: KeyboardEvent): void => {
     isClosedMegaMenu()
   }
 }
-
-// const cursorX = inject<number | null>('cursorX', null)
-// const cursorY = inject<number | null>('cursorY', null)
 
 // Add event listeners when the component is mounted
 onMounted((): void => {

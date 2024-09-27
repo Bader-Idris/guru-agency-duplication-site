@@ -1,1 +1,0 @@
-import{c as s,a as e,F as a,b as r,o as t,T as c,O as o}from"./index-uuh2zEC6.js";const n=r("div",{class:"services"},"services",-1),p={__name:"ServicesView",setup(i){return(_,l)=>(t(),s(a,null,[e(c),n,e(o)],64))}};export{p as default};

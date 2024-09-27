@@ -5,8 +5,6 @@
         <li class="social-table" v-for="(social, i) in socialArr" :key="i">
           <a :href="social.href" target="_blank">
             <img :src="social.imgSrc" :alt="social.alt" :fill="social.fill" />
-            <!-- <div class="cursor"
-              :style="{ left: cursorX + 'px', top: cursorY + 'px' }"></div> -->
             <CircleCursor />
           </a>
         </li>
@@ -264,9 +262,6 @@ const socialArr = ref<SocialLink[]>([
   { imgSrc: getImageUrl('behance.svg'), href: '#', alt: 'behance', fill: 'white' },
   { imgSrc: getImageUrl('twitterx.svg'), href: '#', alt: 'twitter x', fill: 'white' }
 ])
-
-// const cursorX = inject<number | null>('cursorX', null)
-// const cursorY = inject<number | null>('cursorY', null)
 
 onMounted((): void => {
   intervalId = window.setInterval(updateTitle, 2000) // Change title every 2 seconds
