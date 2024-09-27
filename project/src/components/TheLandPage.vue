@@ -30,9 +30,25 @@
       <p>Check out our reel</p>
       <CircleCursor />
     </div>
+    <!-- Overlay for YouTube Video -->
+    <div v-if="showVideo" class="video-overlay">
+      <div class="video-content">
+        <iframe
+          width="1280"
+          height="720"
+          :src="youtubeEmbedUrl"
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen
+        ></iframe>
+        <button @click="closeVideo" class="exit close-video">
+          <span v-for="i in 2" :key="i"></span>
+        </button>
+      </div>
+    </div>
     <div class="slogan">
       <p>
-        A design and strategy studio born in New York that creates visual stories that resonate.
+        {{ slogan }}
       </p>
     </div>
   </div>
@@ -179,6 +195,43 @@
     }
   }
 
+  /* Overlay for YouTube Video */
+  .video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .video-content {
+    position: relative;
+    width: 100%;
+    max-width: 960px;
+    padding: 20px;
+
+    iframe {
+      width: 100%;
+      height: 500px;
+    }
+
+    .close-video {
+      border: none;
+      background-color: transparent;
+      top: -10px;
+      right: -50px;
+
+      span {
+        background-color: white;
+      }
+    }
+  }
+
   .slogan {
     padding-top: 30px;
 
@@ -208,16 +261,14 @@ const dynamicTitle = ref<string>(titles[0])
 const animationClass = ref<string>('animate__heartBeat')
 
 const isSticky = ref<boolean>(false)
-/* 
-I want to make this element scrolling with the screen after it touches the top of the screen, until it finished the Langpage.vue which is its comp name
-
-<!--    <div class="social-icons" :class="{ 'is-sticky': isSticky }" > -->
-
-that's how it's above in the template, I want to make it working when it touches the screen, updating the value of isSticky to true
-*/
+const showVideo = ref<boolean>(false)
+const youtubeEmbedUrl = ref<string>('')
 
 let titleIndex: number = 0
 let intervalId: number | null = null
+
+const slogan: string = `A design and strategy studio born in New York that creates visual
+  stories that resonate.`
 
 const updateTitle = (): void => {
   titleIndex = (titleIndex + 1) % titles.length
@@ -229,21 +280,17 @@ const updateTitle = (): void => {
   animationClass.value = 'animate__heartBeat' // Reapply the animation class
 }
 
-// const windowVideo = () => {
-//   console.log('clicked')
-//   // create a div.video-on-youtube referring to 👇 link, and make a layout stopping scrolling until user clicks on the layout which is nearly padding 80px to both sides
-//   // and it should be as a thumbnail and can be clicked as an outer youtube video, not to be refused to connect as with 403 401 responses of youtube
-//   // I wanna use vidstack for this youtube video, to be embedded
-//   // 'https://www.youtube.com/watch?v=RXidlUSBhMY';
-//   // 'https://www.youtube.com/watch?time_continue=1&v=RXidlUSBhMY&embeds_referring_euri=https%3A%2F%2Fpixelpiernyc.vamtam.com%2F&source_ve_path=Mjg2NjY';
-// }
-
+// Open the video overlay with YouTube embed URL
 const windowVideo = (): void => {
-  console.log('clicked')
-  // create a div.video-on-youtube referring to 👇 link, and make a layout stopping scrolling until user clicks on the layout which is nearly padding 80px to both sides
-  // and it should be as a thumbnail and can be clicked as an outer youtube video, not to be refused to connect as with 403 401 responses of youtube
-  // I wanna use vidstack for this youtube video, to be embedded
-  // 'https://www.youtube.com/watch?time_continue=1&v=RXidlUSBhMY&embeds_referring_euri=https%3A%2F%2Fpixelpiernyc.vamtam.com%2F&source_ve_path=Mjg2NjY';
+  showVideo.value = true
+  // Use YouTube's official embed URL to avoid CORS issues, figured our other sites use embed instead of watch!
+  youtubeEmbedUrl.value = 'https://www.youtube.com/embed/RXidlUSBhMY'
+}
+
+// Close the video overlay
+const closeVideo = (): void => {
+  showVideo.value = false
+  youtubeEmbedUrl.value = ''
 }
 
 function getImageUrl(name: string): string {

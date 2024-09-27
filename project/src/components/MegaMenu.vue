@@ -57,35 +57,7 @@
     width: 420px;
   }
 
-  .exit {
-    position: absolute;
-    right: 0;
-    top: 20px;
-    padding: 20px;
-    display: block;
-    cursor: pointer;
-
-    > span {
-      background-color: $primary1;
-      display: block;
-      width: 40px;
-      height: 2px;
-      border-radius: $b-radius;
-
-      &:first-of-type {
-        transform: translateY(-2px) rotate(45deg);
-      }
-
-      &:last-of-type {
-        transform: translateY(-4px) rotate(-45deg);
-      }
-    }
-  }
-
-  // .exit:hover~.cursor {
-  //   transform: scale(10);
-  // }
-
+  // moved exit to main.scss
   > ul {
     display: flex;
     flex-direction: column;

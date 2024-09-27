@@ -85,3 +85,31 @@ ul {
 }
 
 /* End custom selection */
+
+/* Start exit button */
+.exit {
+  position: absolute;
+  right: 0;
+  top: 20px;
+  padding: 20px;
+  display: block;
+  cursor: pointer;
+
+  > span {
+    background-color: $primary1;
+    display: block;
+    width: 40px;
+    height: 2px;
+    border-radius: $b-radius;
+
+    &:first-of-type {
+      transform: translateY(-2px) rotate(45deg);
+    }
+
+    &:last-of-type {
+      transform: translateY(-4px) rotate(-45deg);
+    }
+  }
+}
+
+/* End exit button */

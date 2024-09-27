@@ -1,0 +1,1 @@
+import{c as a,a as s,b as r,F as t,o,T as c,O as n}from"./index-DNIAThnS.js";const p={__name:"ServicesView",setup(i){return(l,e)=>(o(),a(t,null,[s(c),e[0]||(e[0]=r("div",{class:"services"},"services",-1)),s(n)],64))}};export{p as default};
