@@ -1,0 +1,1 @@
+import{d as o,c as t,a,b as s,F as r,o as n,T as u,O as c}from"./index-CviOTjBd.js";const p=o({__name:"AboutView",setup(i){return(l,e)=>(n(),t(r,null,[a(u),e[0]||(e[0]=s("div",{class:"about"},"about",-1)),a(c)],64))}});export{p as default};

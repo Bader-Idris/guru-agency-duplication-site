@@ -1,0 +1,1 @@
+import{c as o,a,b as s,F as t,o as r,T as l,O as n}from"./index-CviOTjBd.js";const p={__name:"BlogView",setup(c){return(i,e)=>(r(),o(t,null,[a(l),e[0]||(e[0]=s("div",{class:"blog"},"blog",-1)),a(n)],64))}};export{p as default};
