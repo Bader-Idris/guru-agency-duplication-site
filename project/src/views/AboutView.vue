@@ -6,7 +6,7 @@
 
 <style lang="scss"></style>
 
-<script setup>
+<script setup lang="ts">
 import TheNavigation from '@/components/TheNavigation.vue'
 import OurFooter from '@/components/OurFooter.vue'
 </script>

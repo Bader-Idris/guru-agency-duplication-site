@@ -4,7 +4,7 @@
       <ul>
         <li class="social-table" v-for="(social, i) in socialArr" :key="i">
           <a :href="social.href" target="_blank">
-            <img :src="social.imgSrc" :alt="social.alt" :fill="social.fill" />
+            <img :src="social.imgSrc" :alt="social.alt" :fill="social.fill" loading="lazy" />
             <CircleCursor />
           </a>
         </li>
@@ -44,6 +44,7 @@
         <button @click="closeVideo" class="exit close-video">
           <span v-for="i in 2" :key="i"></span>
         </button>
+        <CircleCursor />
       </div>
     </div>
     <div class="slogan">
@@ -225,6 +226,11 @@
       background-color: transparent;
       top: -10px;
       right: -50px;
+
+      @media screen and (max-width: 768px) {
+        top: -20px;
+        right: 0;
+      }
 
       span {
         background-color: white;
