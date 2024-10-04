@@ -2,8 +2,10 @@
   <div class="our-statics">
     <div class="scripting">
       <p>
-        Dive into our studio's core - numbers that mirror our dedication, creativity, and pursuit of
-        excellence. These stats offer a glimpse into our design prowess and its real-world impact.
+        Dive into our studio's core - numbers that mirror our dedication,
+        creativity, and pursuit of
+        excellence. These stats offer a glimpse into our design prowess and its
+        real-world impact.
       </p>
     </div>
     <div class="numbers animate__fadeInUp">
@@ -14,7 +16,8 @@
       </div>
     </div>
     <div class="companies">
-      <img :src="brand.path" :alt="brand.title" v-for="brand in brands" />
+      <img v-for="brand in brands" :key="brand.title" :src="brand.path"
+        :alt="brand.title" />
     </div>
   </div>
 </template>
@@ -131,7 +134,7 @@ section {
       flex-wrap: wrap;
       bottom: 0;
 
-      & > * {
+      &>* {
         margin: 0 20px;
         padding: 10px 0;
       }

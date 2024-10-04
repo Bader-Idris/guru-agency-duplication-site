@@ -3,8 +3,10 @@
     <h2>What we do</h2>
     <div class="hero-para">
       <p class="para" ref="paragraph">
-        Our journey began with a passion for visual storytelling and a commitment to turning ideas
-        into impactful designs. With a team of dedicated professionals, we've honed our skills to
+        Our journey began with a passion for visual storytelling and a
+        commitment to turning ideas
+        into impactful designs. With a team of dedicated professionals, we've
+        honed our skills to
         deliver exceptional results for our clients.
       </p>
     </div>
@@ -43,6 +45,11 @@
       word-spacing: 0.25em;
       color: #2b2b2bff;
       margin-top: 0;
+
+      @media (min-width: 768px) and (max-width: 1024px) {
+        font-size: 42px;
+        padding-top: 25%;
+      }
 
       span {
         opacity: 0;

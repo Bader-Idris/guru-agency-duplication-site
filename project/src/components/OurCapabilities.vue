@@ -34,7 +34,7 @@
     flex-wrap: wrap;
     // height: 100%;
     padding: 60px 0;
-    margin-left: 420px;
+    margin-left: 300px;
     width: calc(100% - 440px);
     margin-right: 20px;
     // .empty {
@@ -55,6 +55,9 @@
     //     background-color: yellow;
     //   }
     // }
+    @media screen and (min-width: 1024px) {
+      width: calc(100% - 400px);
+    }
 
     .feature {
       flex-basis: 30%;
@@ -72,9 +75,10 @@
         flex-basis: 440px;
       }
 
-      @media screen and (max-width: 768px) {
-        margin: 15px 0;
-      }
+      // @media screen and (max-width: 1167px) {
+      //   // margin: 15px 0;
+      //   flex-basis: 420px;
+      // }
 
       img {
         width: 100px;

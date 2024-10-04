@@ -5,16 +5,40 @@
     </div>
     <CircleCursor />
     <ul>
-      <li><a href="/">Homes</a></li>
-      <li><a href="/work">Work</a></li>
-      <li><a href="/services">Services</a></li>
-      <li><a href="/about">Studio</a></li>
-      <li><a href="/blog">Journal</a></li>
+      <li>
+        <AppLink to="/" class="internal-link">
+          Homes
+        </AppLink>
+      </li>
+      <li>
+        <AppLink to="/work" class="internal-link">
+          Work
+        </AppLink>
+      </li>
+      <li>
+        <AppLink to="/services" class="internal-link">
+          Services
+        </AppLink>
+      </li>
+      <li>
+        <AppLink to="/about" class="internal-link">
+          Studio
+        </AppLink>
+      </li>
+      <li>
+        <AppLink to="/blog" class="internal-link">
+          Journal
+        </AppLink>
+      </li>
       <CircleCursor />
     </ul>
     <div class="contacting animate__fadeInUp">
-      <a href="/contact">Contact</a>
-      <a href="/careers">careers</a>
+      <AppLink to="/contact" class="internal-link">
+        Contact
+      </AppLink>
+      <AppLink to="/careers" class="internal-link">
+        careers
+      </AppLink>
       <div class="lets-talk">Let's Talk <span></span></div>
       <CircleCursor />
     </div>
@@ -24,8 +48,6 @@
         <li><a href="#Behance">Behance</a></li>
         <li><a href="#linkedin">Linkedin</a></li>
         <li><a href="#twitter">X</a></li>
-        <!-- <div class="cursor"
-          :style="{ left: cursorX + 'px', top: cursorY + 'px' }"></div> -->
         <CircleCursor />
       </ul>
     </div>
@@ -58,7 +80,7 @@
   }
 
   // moved exit to main.scss
-  > ul {
+  >ul {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -100,7 +122,7 @@
       color: black;
     }
 
-    > .lets-talk {
+    >.lets-talk {
       flex-grow: 3;
       cursor: pointer;
     }

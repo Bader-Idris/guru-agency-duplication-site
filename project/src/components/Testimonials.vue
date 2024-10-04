@@ -4,8 +4,10 @@
       <h3>Reviews</h3>
       <div class="stars"></div>
       <p class="desc">
-        Their words are a testament to our commitment to excellence and our ability to bring their
-        visions to life. Read on to see how we’ve made a lasting impact on their brands and
+        Their words are a testament to our commitment to excellence and our
+        ability to bring their
+        visions to life. Read on to see how we’ve made a lasting impact on their
+        brands and
         projects.
       </p>
     </div>
@@ -28,6 +30,11 @@
 
   .top-review {
     font-size: 20px;
+
+    h3 {
+      margin-left: 20px;
+      font-size: 16px;
+    }
 
     .desc {
       margin: auto;
@@ -110,8 +117,7 @@
         padding-top: 30px;
       }
 
-      .speaker {
-      }
+      .speaker {}
 
       &::before {
         content: '"';

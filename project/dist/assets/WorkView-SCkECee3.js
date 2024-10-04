@@ -1,1 +1,0 @@
-import{c as o,a,b as r,F as s,o as t,T as n,O as c}from"./index-CviOTjBd.js";const p={__name:"WorkView",setup(l){return(i,e)=>(t(),o(s,null,[a(n),e[0]||(e[0]=r("div",{class:"work"},"work",-1)),a(c)],64))}};export{p as default};
